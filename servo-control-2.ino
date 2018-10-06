@@ -42,16 +42,18 @@ void loop() {
     pressProcessed = false;
   }
   if (state == 1) {
-    fade(manualPin);    digitalWrite(manualPin, HIGH);
+    fade(manualPin);
+    digitalWrite(manualPin, HIGH);
     digitalWrite(autoPin, LOW);
 
   }
   if (state == 2) {
-    fade(neutralPin)
-;    digitalWrite(manualPin, LOW);
+    fade(neutralPin);
+    digitalWrite(manualPin, LOW);
     digitalWrite(neutralPin, HIGH);
   }
-  if (state == 3) {    fade(autoPin);
+  if (state == 3) {
+    fade(autoPin);
     digitalWrite(neutralPin, LOW);
     digitalWrite(autoPin, HIGH);
   }
