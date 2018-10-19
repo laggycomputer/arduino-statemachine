@@ -11,6 +11,7 @@ int pressProcessed = false;
 int knobVal;
 //Servo servo;
 void setup() {
+  Serial.begin(9600);
   pinMode(manualPin, OUTPUT);
   pinMode(neutralPin, OUTPUT);
   pinMode(autoPin, OUTPUT);
@@ -67,5 +68,8 @@ void loop() {
     servo.write(0);
     */
   }
+  Serial.print("State is ");
+  Serial.print(state);
+  Serial.print("\n\r");
   delay(100);
 }
