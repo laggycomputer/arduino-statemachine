@@ -1,15 +1,15 @@
-//#include <Servo.h>
+#include <Servo.h>
 const int manualPin = 10;
 const int neutralPin = 11;
 const int autoPin = 12;
 const int buttonPin = 13;
-const int knobPin = "A0";
+const int knobPin = A0;
 //const int servoPin=0;
 int state = 1;
 int buttonState;
 int pressProcessed = false;
 int knobVal;
-//Servo servo;
+Servo servo;
 void setup() {
   Serial.begin(9600);
   pinMode(manualPin, OUTPUT);
@@ -20,7 +20,7 @@ void setup() {
   digitalWrite(manualPin, LOW);
   digitalWrite(neutralPin, LOW);
   digitalWrite(autoPin, LOW);
-  //servo.attach(servoPin);
+  servo.attach(servoPin);
 }
 void fade(int pin) {
   for (int fadeValue = 0; fadeValue <= 255; fadeValue += 5) {
@@ -52,7 +52,7 @@ void loop() {
     fade(manualPin);
     digitalWrite(manualPin, HIGH);
     digitalWrite(autoPin, LOW);
-    //servo.write(knobVal);
+    servo.write(knobVal);
   }
   if (state == 2) {
     fade(neutralPin);
@@ -63,10 +63,10 @@ void loop() {
     fade(autoPin);
     digitalWrite(neutralPin, LOW);
     digitalWrite(autoPin, HIGH);
-    /*servo.write(180);
+    servo.write(180);
     delay(100);
     servo.write(0);
-    */
+    
   }
   Serial.print("State is ");
   Serial.print(state);
