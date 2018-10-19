@@ -4,7 +4,7 @@ const int neutralPin = 11;
 const int autoPin = 12;
 const int buttonPin = 13;
 const int knobPin = A0;
-//const int servoPin=0;
+const int servoPin=0;
 int state = 1;
 int buttonState;
 int pressProcessed = false;
